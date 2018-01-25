@@ -20,11 +20,7 @@ for i in range(0, total_points):
   # Increment counter if inside unit circle.
   if (y2<=function(x2)):
       inside_points+=1
-  #if m.sqrt(1-(x**2)) < 1.0:
-      #inside_points +=1
-    #if m.sqrt(x2 + y2) < 1.0:
-      #inside_points += 1
-
+      
 # inside / total = pi / 4
 probability = (float(inside_points) / total_points)
 pi = probability*4
