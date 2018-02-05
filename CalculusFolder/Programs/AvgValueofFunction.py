@@ -16,7 +16,7 @@ f_a = integral.subs(x,a)
 
 avg_value = (f_b-f_a)/(abs(b-a))
 
-print (avg_value)
+print ("This is the arclength of the function along that interval: {}".format(arclength))
 
 
 
