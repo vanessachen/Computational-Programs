@@ -1,9 +1,7 @@
 from sympy import *
-from sympy.plotting import plot
-from sympy.plotting import plot3d
+import math
 
 x = Symbol('x')
-y = Symbol('y')
 
 a = float(input('Input the starting value: '))
 b = float(input('Input the ending value: '))
@@ -13,6 +11,8 @@ function2 = input("Input the second function: ")
 
 num_of_Intervals = float(input('Input the number of intervals: '))
 riemann_sum_type = input('Input "left", "trapezoidal", or "right" to calculate the type of Riemann Sum Approximation: ')
+print ("Options for 3D shape: 'square', 'equilateral triangle', 'isosceles right triangle', and 'semicircle'")
+shape_3D = input('Input the 3D shape that extends from the base - the area between two curves: ')
 
 
 delta_x = ((b-a)/num_of_Intervals)
@@ -30,7 +30,18 @@ def riemann_Sum(riemann_sum_type):
             f1_x = eval(function1)
             f2_x = eval(function2)
             height_of_interval = abs(f1_x - f2_x)
-            delta_A = height_of_interval * delta_x
+            if (shape_3D == 'square'):
+                delta_A = (height_of_interval)**2 * delta_x #squaring the base
+            elif (shape_3D == 'equilateral triangle'):
+                #area of equilateral triangle is: (((3)**2)/4) * s**2
+                delta_A = (((3)**2)/4) * (height_of_interval)**2 * delta_x
+            elif (shape_3D == 'isosceles right triangle'):
+                #area of isosceles right triangle is: .5 * base**2
+                delta_A = .5 * (height_of_interval)**2 * delta_x
+            elif (shape_3D == 'semicircle'):
+                #area of semicircle is: .5 * pi * (r)**2
+                delta_A = .5 * math.pi * (height_of_interval/2)**2 * delta_x
+            #delta_A = height_of_interval * delta_x
             x = x + delta_x #increment to the next x-interval
             leftsum = leftsum + delta_A #add to the sum
             n = n+1
@@ -42,7 +53,18 @@ def riemann_Sum(riemann_sum_type):
             f1_x = eval(function1)
             f2_x = eval(function2)
             height_of_interval = abs(f1_x - f2_x)
-            delta_A = height_of_interval * delta_x
+            if (shape_3D == 'square'):
+                delta_A = (height_of_interval)**2 * delta_x #squaring the base
+            elif (shape_3D == 'equilateral triangle'):
+                #area of equilateral triangle is: (((3)**2)/4) * s**2
+                delta_A = (((3)**2)/4) * (height_of_interval)**2 * delta_x
+            elif (shape_3D == 'isosceles right triangle'):
+                #area of isosceles right triangle is: .5 * base**2
+                delta_A = .5 * (height_of_interval)**2 * delta_x
+            elif (shape_3D == 'semicircle'):
+                #area of semicircle is: .5 * pi * (r)**2
+                delta_A = .5 * math.pi * (height_of_interval/2)**2 * delta_x
+            #delta_A = height_of_interval * delta_x
             x = x + delta_x #increment to the next x-interval
             rightsum = rightsum + delta_A #add to the sum
             n = n+1
@@ -52,7 +74,4 @@ def riemann_Sum(riemann_sum_type):
         rightsum = riemann_Sum('right')
         return (leftsum+rightsum)/2 #the trapezoidal sum is the average of leftsum and rightsum
 
-#line2 = b
-#plot(function1, function2, (x, -5,5), (y,-5,5))
 print(riemann_Sum(riemann_sum_type))
-plot(function1, function2, (x, -5,5), (y,-5,5))
