@@ -19,6 +19,7 @@ if (correct_format == True):
     #need to calculate the inverse of the function, because we are evaluating the x-value at every y interval along the fxn
     function = (lambda x: eval(function_str)) #lamba lists the args of the function, followed by the function
     inverse_function = inversefunc(function) #inverse_function is a function that can evaluate the inverse given an x value
+    print("This is the inverse function: {}".format(inverse_function))
     volume_sum_type = input('Input "left", "middle", or "right" to calculate the type of Volume Approximation: ')
 
 # Compute delta_y for the integration interval

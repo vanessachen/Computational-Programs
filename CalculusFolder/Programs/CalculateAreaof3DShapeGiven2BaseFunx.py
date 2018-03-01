@@ -1,5 +1,7 @@
 from sympy import *
 import math
+from math import e
+
 
 x = Symbol('x')
 
@@ -28,6 +30,7 @@ def riemann_Sum(riemann_sum_type):
         while n < abs(num_of_Intervals):
             #change in area = y-value of function * width of interval
             f1_x = eval(function1)
+            print ("eval f1(x): {}".format(f1_x))
             f2_x = eval(function2)
             height_of_interval = abs(f1_x - f2_x)
             if (shape_3D == 'square'):
@@ -40,7 +43,8 @@ def riemann_Sum(riemann_sum_type):
                 delta_A = .5 * (height_of_interval)**2 * delta_x
             elif (shape_3D == 'semicircle'):
                 #area of semicircle is: .5 * pi * (r)**2
-                delta_A = .5 * math.pi * (height_of_interval/2)**2 * delta_x
+                delta_A = .5 * math.pi * ((height_of_interval/2)**2) * delta_x
+                print ("delta_A: {}".format(delta_A)) 
             #delta_A = height_of_interval * delta_x
             x = x + delta_x #increment to the next x-interval
             leftsum = leftsum + delta_A #add to the sum

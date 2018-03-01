@@ -2,6 +2,7 @@
 #from pynverse import inversefunc
 from sympy import *
 import math
+from math import pi
 from sympy.plotting import plot
 from sympy.plotting import plot3d
 

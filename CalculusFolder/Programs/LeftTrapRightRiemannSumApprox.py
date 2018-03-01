@@ -1,4 +1,7 @@
 # Calcuate the area under a curve for any function from a to b with Riemann Sum Approximation
+from math import e
+import math
+
 
 correct_format = True;
 
